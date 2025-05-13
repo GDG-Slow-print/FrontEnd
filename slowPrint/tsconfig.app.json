@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* 👉 Bundler mode (Vite) 대신 Node로 변경하여 자동완성 개선 */
+    "moduleResolution": "node",
+
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* ✨ Lint & 안전한 코드 */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+
+    /* ✅ 자동완성, 경로 인식 관련 */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@flowwwkr/*": ["node_modules/@flowwwkr/*"]
+    },
+    "types": ["react", "node"],
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  },
+  "include": ["src"]
+}
