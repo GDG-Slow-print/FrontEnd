@@ -1,4 +1,5 @@
 [build]
+  base = "." 
   command = "pnpm run build"  # 'npm start' 대신 'npm run build'를 사용하여 빌드된 파일을 배포합니다.
   publish = "dist"          # 'build' 폴더에 최적화된 파일이 생성됩니다.
 
