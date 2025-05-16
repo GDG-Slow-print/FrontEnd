@@ -23,6 +23,8 @@ const CarbonPrint = () => {
     null
   );
 
+  console.log(positionList);
+
   useEffect(() => {
     const carbonMileageResultBeforeParse = localStorage.getItem(CARBON_MILEAGE);
     if (carbonMileageResultBeforeParse) {
@@ -31,6 +33,7 @@ const CarbonPrint = () => {
         setParsed(parsedResult);
       } catch (e) {
         alert("failed load");
+        console.log(e);
       }
     }
   }, []);
@@ -107,9 +110,9 @@ const CarbonPrint = () => {
       const userID = sessionStorage.getItem(USER_ID) ?? undefined;
 
       const payload: GettingCarbonMileagePayloadType = {
-        email: userID,
+        email: userID ?? "",
         distance: Number((distance / 1000).toFixed(2)),
-        transportation: transportation,
+        transportation: transportation ?? "bicycle",
       };
 
       try {

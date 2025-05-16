@@ -38,8 +38,8 @@ const Login = () => {
     }
 
     const payload = {
-      email: idValue,
-      password: passwordValue,
+      email: idValue ?? "",
+      password: passwordValue ?? "",
     };
     try {
       await postLoginInfo(payload);

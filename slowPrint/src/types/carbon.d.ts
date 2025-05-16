@@ -1,7 +1,7 @@
 // 탄소 마일리지 지급
 export interface GettingCarbonMileagePayloadType {
   email: string;
-  transportation: "subway" | "car" | "subway" | "bicycle";
+  transportation: string;
   distance: number;
 }
 

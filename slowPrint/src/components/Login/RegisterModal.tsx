@@ -53,9 +53,9 @@ const RegisterModal = ({
       }
     }
     const payload = {
-      email: idValue,
-      password1: passwordValue,
-      password2: confirmPasswordValue,
+      email: idValue ?? "",
+      password1: passwordValue ?? "",
+      password2: confirmPasswordValue ?? "",
     };
 
     try {
