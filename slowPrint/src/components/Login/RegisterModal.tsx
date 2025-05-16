@@ -1,3 +1,4 @@
+import { postSignUpInfo } from "@/service/login/login.api";
 import {
   Modal,
   ThemeButton,
@@ -20,6 +21,9 @@ const RegisterModal = ({
   const [passwordValue, setPasswordValue] = useState<string | undefined>(
     undefined
   );
+  const [confirmPasswordValue, setConfirmPasswordValue] = useState<
+    string | undefined
+  >(undefined);
 
   const handleIdInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIdValue(e.target.value);
@@ -29,11 +33,39 @@ const RegisterModal = ({
     setPasswordValue(e.target.value);
   };
 
-  const handleSubmitForm = () => {
-    // API 호출
+  const handleConfirmPasswordInput = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setConfirmPasswordValue(e.target.value);
+  };
 
-    alert("You have successfully registered");
-    setIsModalOpen(false);
+  const handleSubmitForm = async () => {
+    // API 호출
+    if (idValue === "" || passwordValue === "" || confirmPasswordValue === "") {
+      return;
+    }
+
+    if (idValue) {
+      if (idValue.length < 8 || idValue.length > 20) {
+        alert(
+          "Please enter a password of at least 8 characters and no more than 20 characters."
+        );
+      }
+    }
+    const payload = {
+      email: idValue,
+      password1: passwordValue,
+      password2: confirmPasswordValue,
+    };
+
+    try {
+      await postSignUpInfo(payload);
+      alert("You have successfully registered");
+      setIsModalOpen(false);
+    } catch (E) {
+      alert("failed registering");
+      console.log(E);
+    }
   };
 
   return (
@@ -138,6 +170,29 @@ const RegisterModal = ({
             noDefaultStyle
             value={passwordValue}
             onChange={handlePasswordInput}
+            type="password"
+            placeholder="Enter your password"
+            placeholderStyle={{
+              color: "placeholder:c-[#9ca3af]",
+              fontWeight: "placeholder:fw-600",
+              fontSize: "placeholder:fs-1.25",
+            }}
+          ></Input>
+        </Flex>
+        <Flex
+          color="c-primary-sf"
+          borderRadius="rad-0.75"
+          borderWidth="bw-0.125"
+          borderColor="bc-primary-sf-03"
+          width="w-full"
+          height="h-[54px]"
+        >
+          <Input
+            color="c-primary-sf-03"
+            width="w-90%"
+            noDefaultStyle
+            value={confirmPasswordValue}
+            onChange={handleConfirmPasswordInput}
             type="password"
             placeholder="Enter your password"
             placeholderStyle={{

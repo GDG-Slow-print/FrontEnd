@@ -1,17 +1,14 @@
 import Loading from "@/components/common/Loading";
 import RegisterModal from "@/components/Login/RegisterModal";
 import { USER_ID } from "@/data/sessionKey";
+import { postLoginInfo } from "@/service/login/login.api";
 import {
   Flex,
-  Select,
-  TextInput,
   Image,
   Text,
-  ThemeButton,
   Button,
   Input,
   IconCheck,
-  IconDrag,
 } from "@flowwwkr/design-system-tailwind";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -33,17 +30,32 @@ const Login = () => {
     setPasswordValue(e.target.value);
   };
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     // 로그인 API 전송!
-    alert("Successfully Login!");
+    if (idValue === "" || passwordValue === "") {
+      alert("Please fill in all fields");
+      return;
+    }
 
-    sessionStorage.setItem(USER_ID, JSON.stringify(idValue));
+    const payload = {
+      email: idValue,
+      password: passwordValue,
+    };
+    try {
+      await postLoginInfo(payload);
+      alert("Successfully Login!");
 
-    setIsLoading(true);
-    setTimeout(() => {
-      navigate("/home");
-      setIsLoading(false);
-    }, 1000);
+      sessionStorage.setItem(USER_ID, JSON.stringify(idValue));
+
+      setIsLoading(true);
+      setTimeout(() => {
+        navigate("/home");
+        setIsLoading(false);
+      }, 1000);
+    } catch (E) {
+      alert("failed Login");
+      console.log(E);
+    }
   };
 
   const goToResetPasswordPage = () => {

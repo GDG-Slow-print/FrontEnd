@@ -1,17 +1,12 @@
 import Loading from "@/components/common/Loading";
 import {
   Flex,
-  Select,
-  TextInput,
   Image,
   Text,
-  ThemeButton,
   Button,
   Input,
   IconCheck,
-  IconDrag,
 } from "@flowwwkr/design-system-tailwind";
-import { nav } from "framer-motion/dist/m";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 

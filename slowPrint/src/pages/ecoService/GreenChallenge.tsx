@@ -1,8 +1,8 @@
-import Background from "@/components/common/Background";
+import CarbonPrint from "@/components/common/ecoService/CarbonPrint";
+import ChatBot from "@/components/common/ChatBot";
 import ChallengeBox from "@/components/greenChallenge/ChallengeBox";
 import SideHeader from "@/components/hedaer/SideHeader";
-import IconBackground from "@/components/icons/IconBackground";
-import { Flex, Grid } from "@flowwwkr/design-system-tailwind";
+import { Flex } from "@flowwwkr/design-system-tailwind";
 
 const GreenChallenge = () => {
   return (
@@ -11,6 +11,7 @@ const GreenChallenge = () => {
       grow="grow-1"
       wrap="flex-nowrap"
       justifyContent="jc-start"
+      position="relative"
     >
       <SideHeader selectedTab="challenge" />
       <Flex
@@ -28,6 +29,8 @@ const GreenChallenge = () => {
         <ChallengeBox kindOfChallenge="noPlastic" />
         <ChallengeBox kindOfChallenge="trashTag" />
       </Flex>
+      <ChatBot />
+      <CarbonPrint />
     </Flex>
   );
 };

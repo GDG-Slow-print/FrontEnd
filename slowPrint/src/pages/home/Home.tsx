@@ -1,27 +1,98 @@
-import Background from "@/components/common/backgrond";
+import CarbonPrint from "@/components/common/ecoService/CarbonPrint";
+import ChatBot from "@/components/common/ChatBot";
 import SideHeader from "@/components/hedaer/SideHeader";
-import IconBackground from "@/components/icons/IconBackground";
-import { Button, Flex } from "@flowwwkr/design-system-tailwind";
+import { Flex, Image, Text } from "@flowwwkr/design-system-tailwind";
 
 const Home = () => {
   return (
     <Flex
       width="w-full"
-      height="h-full"
-      wrap="flex-wrap"
+      grow="grow-1"
+      wrap="flex-nowrap"
       justifyContent="jc-start"
+      position="relative"
     >
       <SideHeader selectedTab="home" />
-
-      <Flex>isdi</Flex>
-      <IconBackground
-        position="fixed"
-        top="t-30"
-        right="r-30"
-        width="w-80%"
-        height="h-40%"
-        zIndex="-z-1001"
-      />
+      <Flex
+        height="h-full"
+        grow="grow-1"
+        justifyContent="jc-start"
+        alignItems="ai-center"
+        gap="g-1"
+        padding="p-1"
+        direction="flex-col"
+      >
+        <Flex width="w-full">
+          <Image
+            alt=""
+            src="/imgs/savedCarbon.jpg"
+            objectFit="obj-cover"
+            width="w-full"
+            height="h-30"
+            zIndex="-z-1"
+          ></Image>
+          <Text
+            fontWeight="fw-600"
+            fontFamily="ff-primary"
+            fontSize="fs-2"
+            color="c-primary-sf-03"
+            lineClamp="lc-none"
+            width="w-full"
+            textAlign="ta-center"
+          >
+            Earn miles with your carbon footprint while traveling, <br />A trip
+            that considers the environment with the Green Challenge!
+          </Text>
+        </Flex>
+        {/*  */}
+        <Flex width="w-full">
+          <Image
+            alt=""
+            src="/imgs/local.jpg"
+            objectFit="obj-cover"
+            width="w-full"
+            height="h-30"
+            zIndex="-z-1"
+          ></Image>
+          <Text
+            fontWeight="fw-600"
+            fontFamily="ff-primary"
+            fontSize="fs-2"
+            color="c-primary-sf-03"
+            lineClamp="lc-none"
+            width="w-full"
+            textAlign="ta-center"
+          >
+            Providing benefits to travelers and revitalizing local businesses
+            <br />
+            through local promotion and volunteer work
+          </Text>
+        </Flex>
+        {/*  */}
+        <Flex width="w-full">
+          <Image
+            alt=""
+            src="/public/imgs/traveler.jpg"
+            objectFit="obj-cover"
+            width="w-full"
+            height="h-30"
+            zIndex="-z-1"
+          ></Image>
+          <Text
+            fontWeight="fw-600"
+            fontFamily="ff-primary"
+            fontSize="fs-2"
+            color="c-primary-sf-03"
+            lineClamp="lc-none"
+            width="w-full"
+            textAlign="ta-center"
+          >
+            Providing AI-tailored information to travelers using Google Gemini
+          </Text>
+        </Flex>
+      </Flex>
+      <ChatBot />
+      <CarbonPrint />
     </Flex>
   );
 };

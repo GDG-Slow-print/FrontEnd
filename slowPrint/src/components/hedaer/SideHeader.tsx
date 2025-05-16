@@ -1,20 +1,24 @@
 import IconExit from "@/components/icons/IconExit";
 import { USER_ID } from "@/data/sessionKey";
-import {
-  Button,
-  Flex,
-  IconArrow,
-  Text,
-} from "@flowwwkr/design-system-tailwind";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Button, Flex, Text } from "@flowwwkr/design-system-tailwind";
+import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 interface SideHeaderProps {
   selectedTab: "home" | "mileage" | "challenge" | "labor" | "promotion";
 }
 
 const SideHeader = ({ selectedTab }: SideHeaderProps) => {
-  const userID = sessionStorage.getItem(USER_ID);
+  const [parsed, setParsed] = useState<string | null>(null);
+  const userIDBeforeParsed = sessionStorage.getItem(USER_ID);
 
+  useEffect(() => {
+    if (userIDBeforeParsed !== null) {
+      setParsed(JSON.parse(userIDBeforeParsed));
+    } else {
+      alert("Invalid user");
+    }
+  }, []);
   return (
     <Flex
       justifyContent="jc-between"
@@ -171,12 +175,12 @@ const SideHeader = ({ selectedTab }: SideHeaderProps) => {
           width="w-full"
           fontFamily="ff-primary"
           fontWeight="fw-500"
-          fontSize="fs-1"
+          fontSize="fs-0.75"
           color="c-primary-sf-03"
           lineClamp="lc-none"
           textAlign="ta-center"
         >
-          {userID ? userID : "undefined"}
+          {parsed ? parsed : "Invalid user"}
         </Text>
         <IconExit size="sz-2" color="c-primary-sf-04" alignSelf="as-end" />
       </Button>

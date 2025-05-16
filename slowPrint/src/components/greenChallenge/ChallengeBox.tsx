@@ -155,7 +155,7 @@ const ChallengeBox = ({ kindOfChallenge = "ecoSpot" }: ChallengeBoxProps) => {
                 {capturedImage ? (
                   <Image
                     src={capturedImage}
-                    objectFit="obj-contain" // ✅ 비율 유지하면서 Fit
+                    objectFit="obj-contain" // 비율 유지하면서 Fit
                     size="sz-full"
                     alt="preview"
                   />
@@ -201,7 +201,7 @@ const ChallengeBox = ({ kindOfChallenge = "ecoSpot" }: ChallengeBoxProps) => {
               size="sz-full"
               objectFit="obj-cover"
               alt="challengeImg"
-              src={`../../../public/imgs/${kindOfChallenge}.jpg`}
+              src={`/imgs/${kindOfChallenge}.jpg`}
             />
           )}
         </Flex>

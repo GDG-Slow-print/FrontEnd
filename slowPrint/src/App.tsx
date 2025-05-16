@@ -1,8 +1,7 @@
 import Layout from "@/components/Layout";
 import GreenChallenge from "@/pages/ecoService/GreenChallenge";
-import GreenMileage from "@/pages/ecoService/GreenMi";
+import GreenMileage from "@/pages/ecoService/GreenMileage";
 import Home from "@/pages/home/Home";
-import Landing from "@/pages/Landing/Landing";
 import Login from "@/pages/login/Login";
 import ResetPassword from "@/pages/login/ResetPassword";
 import LaborMatch from "@/pages/revitalizationService/LabortMatch";
@@ -15,8 +14,7 @@ const App = () => {
       path: "/",
       element: <Layout />,
       children: [
-        { index: true, element: <Landing /> },
-        { path: "login", element: <Login /> },
+        { index: true, element: <Login /> },
         { path: "home", element: <Home /> },
         { path: "resetPassword", element: <ResetPassword /> },
         { path: "greenMileage", element: <GreenMileage /> },
