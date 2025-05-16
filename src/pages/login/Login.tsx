@@ -84,7 +84,7 @@ const Login = () => {
     >
       <Image
         alt="background"
-        src="../../../public/imgs/natureBackgroundImg.jpg"
+        src="/imgs/natureBackgroundImg.jpg"
         width="w-full"
         height="h-full"
         zIndex="-z-1"
