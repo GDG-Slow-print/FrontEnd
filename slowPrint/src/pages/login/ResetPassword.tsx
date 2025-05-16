@@ -49,13 +49,13 @@ const ResetPassword = () => {
     alert("The existing password has been successfully changed.");
     setIsLoading(true);
     setTimeout(() => {
-      navigate("/login");
+      navigate("/");
       setIsLoading(false);
     }, 1000);
   };
 
   const goToLoginPage = () => {
-    navigate("/login");
+    navigate("/");
   };
 
   if (isLoading) {
